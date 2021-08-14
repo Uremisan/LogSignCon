@@ -15,8 +15,9 @@ export default function LoginForm() {
         secureTextEntry={true}
         autoCorrect={false}
       />
-
+      <TouchableOpacity>
       <Text style={styles.input1}>Forgot password?</Text>
+      </TouchableOpacity>
 
       <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Log In</Text>
