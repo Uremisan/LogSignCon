@@ -7,8 +7,8 @@ import SignUp from './src/screens/SignUp';
 export default function App() {
   return (
     <ScrollView>
-      {/* <LoginForm /> */}
-      <SignUp />
+      <LoginForm />
+      {/* <SignUp /> */}
       <StatusBar style="auto" />
     </ScrollView>
   );

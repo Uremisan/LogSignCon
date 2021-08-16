@@ -1,25 +1,40 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ScrollView, StyleSheet,Text, TextInput, TouchableOpacity } from 'react-native'
 
+
 export default function LoginForm() {
+  const [state, setstate] = useState({
+    username: '',
+    password: '',
+  });
+
+  function handleOnChange(name, text){
+    setstate({...state,[name]: text});
+  };
+
+  function handleSubmit(){
+  };
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.text}>Log In</Text>
 
       <TextInput
-        placeholder = 'Username' style={styles.input}
+        placeholder = 'Username' style={styles.input} onChangeText={(text) => {handleOnChange("username", text);}}
       />
 
       <TextInput
         placeholder = 'Password' style={styles.input}
         secureTextEntry={true}
         autoCorrect={false}
+        onChangeText={(text) => {
+          handleOnChange("password", text);
+        }}
       />
       <TouchableOpacity>
       <Text style={styles.input1}>Forgot password?</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={handleSubmit}>
         <Text style={styles.buttonText}>Log In</Text>
       </TouchableOpacity>
 
@@ -49,6 +64,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 3,
     borderBottomColor: '#711be4',
     color:'#05010A',
+    paddingBottom: 10,
   },
   input1: {
     paddingTop:10,
