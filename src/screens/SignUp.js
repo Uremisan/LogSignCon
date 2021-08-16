@@ -1,28 +1,50 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ScrollView, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native'
 
+
 export default function SignUp() {
+  const [state, setstate] = useState({
+    username: '',
+    email: '',
+    password: '',
+  });
+
+  function handleOnChange(name, text){
+    setstate({...state,[name]: text});
+  };
+
+  function handleSubmit(){
+  };
+
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.text}>Sign Up</Text>
 
-      <TextInput placeholder = 'Username' style={styles.input}/>
+      <TextInput placeholder = 'Username' style={styles.input} onChangeText={(text) => {handleOnChange("username", text);}}/>
 
-      <TextInput placeholder = 'Email' style={styles.input0}/>
+      <TextInput placeholder = 'Email' style={styles.input0} onChangeText={(text) => {
+            handleOnChange("email", text);
+          }}/>
 
       <TextInput
         placeholder = 'Password' style={styles.input0}
         secureTextEntry={true}
         autoCorrect={false}
+        onChangeText={(text) => {
+          handleOnChange("password", text);
+        }}
       />
 
       <TextInput
         placeholder = 'Password again' style={styles.input}
         secureTextEntry={true}
         autoCorrect={false}
+        onChangeText={(text) => {
+          handleOnChange("password", text);
+        }}
       />
 
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={handleSubmit}>
         <Text style={styles.buttonText}>Sign Up</Text>
       </TouchableOpacity>
 
